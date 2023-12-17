@@ -1,13 +1,11 @@
 "use client";
-import React from "react";
-
 interface PaddingSelectorProps {
   paddings: string[];
   currentPadding: string;
   setCurrentPadding: (padding: string) => void;
 }
 
-function PaddingSelector({
+export default function PaddingSelector({
   paddings,
   currentPadding,
   setCurrentPadding,
@@ -40,5 +38,3 @@ function PaddingSelector({
     </div>
   );
 }
-
-export default PaddingSelector;

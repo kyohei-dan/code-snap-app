@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { themes } from "@/utils/utilities";
 import OutsideClickHandler from "react-outside-click-handler";
@@ -9,8 +9,8 @@ interface ThemeSelectorProps {
   setTheme: (theme: string) => void;
 }
 
-function ThemeSelector({ theme, setTheme }: ThemeSelectorProps) {
-  const [showDropdown, setShowDropdown] = React.useState(false);
+export default function ThemeSelector({ theme, setTheme }: ThemeSelectorProps) {
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -46,5 +46,3 @@ function ThemeSelector({ theme, setTheme }: ThemeSelectorProps) {
     </OutsideClickHandler>
   );
 }
-
-export default ThemeSelector;

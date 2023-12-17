@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { backgrounds } from "@/utils/utilities";
 import OutsideClickHandler from "react-outside-click-handler";
@@ -9,11 +9,8 @@ interface BackgroundSelectorProps {
   setBackground: (background: string) => void;
 }
 
-function BackgroundSelector({
-  background,
-  setBackground,
-}: BackgroundSelectorProps) {
-  const [showDropdown, setShowDropdown] = React.useState(false);
+export default function BackgroundSelector({background, setBackground}: BackgroundSelectorProps) {
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -26,13 +23,11 @@ function BackgroundSelector({
   return (
     <OutsideClickHandler onOutsideClick={() => setShowDropdown(false)}>
       <div className="bg-selector relative" onClick={toggleDropdown}>
-        <p className="py-[5px] text-sm font-medium">テーマ</p>
+        <p className="py-[5px] text-sm font-medium">背景色</p>
         <div className="dropdown-title w-[62px]">
           <div
             className="rounded-full w-[20px] h-[20px]"
-            style={{
-              background: background,
-            }}
+            style={{background: background}}
           ></div>
           <ChevronDown />
         </div>
@@ -54,5 +49,3 @@ function BackgroundSelector({
     </OutsideClickHandler>
   );
 }
-
-export default BackgroundSelector;

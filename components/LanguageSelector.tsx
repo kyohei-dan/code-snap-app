@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { languages } from "@/utils/utilities";
 import OutsideClickHandler from "react-outside-click-handler";
@@ -10,12 +10,12 @@ interface LanguageSelectorProps {
   seActiveIcon: (icon: string) => void;
 }
 
-function LanguageSelector({
+export default function LanguageSelector({
   language,
   setLanguage,
   seActiveIcon,
 }: LanguageSelectorProps) {
-  const [showDropdown, setShowDropdown] = React.useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -61,5 +61,3 @@ function LanguageSelector({
     </OutsideClickHandler>
   );
 }
-
-export default LanguageSelector;
